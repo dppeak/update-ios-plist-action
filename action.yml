@@ -1,5 +1,5 @@
-name: 'Update iOS bundle identifier'
-description: 'Update iOS bundle identifier of your Info.plist file'
+name: 'Update iOS Plist'
+description: 'Update iOS User Defined keys in your Info.plist file'
 author: 'damienaicheh'
 inputs:
   info-plist-path:

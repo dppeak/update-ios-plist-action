@@ -1,4 +1,4 @@
-# Update iOS bundle identifier action
+# Update iOS Plist
 
 This action update the `CFBundleIdentifier`, `CFBundleName` and `CFBundleDisplayName` properties of the Info.plist file for your iOS projects.
 

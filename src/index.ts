@@ -52,7 +52,7 @@ async function main(): Promise<void> {
 
         core.info(`Info.plist updated successfully`);
     } catch (error) {
-        core.setFailed(error.message);
+        if (error instanceof Error) core.setFailed(error.message);
     }
 }
 

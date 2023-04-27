@@ -4,7 +4,7 @@
   "description": "Update iOS User Defined keys in your Info.plist file",
   "main": "lib/index.js",
   "scripts": {
-     "package-action": "tsc && ncc build lib/index.js --license licenses.txt",
+    "package-action": "tsc && ncc build lib/index.js --license licenses.txt",
     "build": "tsc",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
@@ -21,7 +21,7 @@
       "actions",
       "node",
       "setup"
-  ],    
+  ],
   "author": "dppeak",
   "license": "ISC",
   "dependencies": {

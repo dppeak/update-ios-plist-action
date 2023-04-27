@@ -20,10 +20,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Update Bundle identifier
-        uses: damienaicheh/update-ios-bundle-identifier-action@v1.0.0
+        uses: dppeak/update-ios-plist-action@v1.0.0
         with:
           info-plist-path: './samples/Info.plist'
-          bundle-identifier: 'com.mycompany.app'
-          bundle-name: 'Name'
-          bundle-display-name: 'New App'
+          key-name: 'UserCustomKey'
+          key-value: 'Some Value to store'
           print-file: true

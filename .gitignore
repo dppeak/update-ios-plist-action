@@ -1,12 +1,7 @@
-# dev dependencies are *not* checked in
-global.json
-lib/
-node_modules/
-__tests__/runner/*
-__tests__/sample-csproj/bin/
-__tests__/sample-csproj/obj/
+# Dependency directory
+node_modules
 
-# Rest of the file pulled from https://github.com/github/gitignore/blob/master/Node.gitignore
+# Rest pulled from https://github.com/github/gitignore/blob/master/Node.gitignore
 # Logs
 logs
 *.log
@@ -95,5 +90,10 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# Ignore .vscode files
-.vscode/
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+__tests__/runner/*
+lib/**/*

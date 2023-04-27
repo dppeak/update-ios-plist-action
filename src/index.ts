@@ -18,12 +18,16 @@ async function main(): Promise<void> {
 
         core.debug(`Running action with ${infoPlistPath}`);
 
-        let bundleIdentifier: string = core.getInput('bundle-identifier');
-        let bundleName: string = core.getInput('bundle-name');
-        let bundleDisplayName: string = core.getInput('bundle-display-name');
+        let keyName: string = core.getInput('key-name');
+        let keyValue: string = core.getInput('key-value');
 
-        if (!bundleIdentifier) {
-            core.setFailed(`Bundle Identifier has no value: ${bundleIdentifier}. You must define it.`);
+        if (!keyName) {
+            core.setFailed(`Key Name has no value: ${keyName}. You must define it.`);
+            process.exit(1);
+        }
+
+        if (!keyValue) {
+            core.setFailed(`Key Value has no value: ${keyValue}. You must define it.`);
             process.exit(1);
         }
 
@@ -32,19 +36,11 @@ async function main(): Promise<void> {
             await exec.exec('cat', [infoPlistPath]);
         }
 
-
         let fileContent = fs.readFileSync(infoPlistPath, { encoding: 'utf8' });
         core.debug(JSON.stringify(fileContent));
 
         let obj = plist.parse(fileContent);
-        obj['CFBundleIdentifier'] = bundleIdentifier;
-        if (bundleName) {
-            obj['CFBundleName'] = bundleName;
-        }
-
-        if (bundleDisplayName) {
-            obj['CFBundleDisplayName'] = bundleDisplayName;
-        }
+        obj[keyName] = keyValue;
 
         fs.chmodSync(infoPlistPath, "600");
         fs.writeFileSync(infoPlistPath, plist.build(obj));

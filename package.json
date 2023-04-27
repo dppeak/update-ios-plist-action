@@ -1,13 +1,13 @@
 {
-  "name": "update-ios-bundle-identifier-action",
+  "name": "update-ios-plist-action",
   "version": "1.0.0",
-  "description": "Update iOS bundle identifier",
+  "description": "Update iOS User Defined keys in your Info.plist file",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "package-action": "tsc && ncc build lib/index.js --license licenses.txt"
   },
-  "author": "damienaicheh",
+  "author": "dppeak",
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.2.7",

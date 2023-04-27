@@ -1,24 +1,21 @@
 name: 'Update iOS Plist'
 description: 'Update iOS User Defined keys in your Info.plist file'
-author: 'damienaicheh'
+author: 'dppeak'
 inputs:
   info-plist-path:
     description: 'Relative path for the Info.plist file.'
     required: true
-  bundle-identifier:
-    description: 'The value of the CF Bundle Identifier'
+  key-name:
+    description: 'The name of the user defined key'
     required: true
-  bundle-name:
-    description: 'The value of the CF Bundle Name'
-    required: false
-  bundle-display-name:
-    description: 'he value of the CF Bundle Display Name'
-    required: false
+  key-value:
+    description: 'The value of the user defined key'
+    required: true
   print-file:
     description: 'Output the Info.plist file in console'
     required: false
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   icon: 'file'

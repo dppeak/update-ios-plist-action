@@ -90,12 +90,11 @@ function main() {
 }
 function handleError(err) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.error(err);
         core.setFailed(`Unhandled error: ${err}`);
     });
 }
 function getBooleanInput(inputName, defaultValue = false) {
-    return (core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE';
+    return ((core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE');
 }
 
 

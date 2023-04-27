@@ -13,7 +13,9 @@ async function main(): Promise<void> {
     const infoPlistPath = core.getInput('info-plist-path')
 
     if (!fs.existsSync(infoPlistPath)) {
-      core.setFailed(`The file path for the Info.plist does not exist or is not found: ${infoPlistPath}`)
+      core.setFailed(
+        `The file path for the Info.plist does not exist or is not found: ${infoPlistPath}`
+      )
       process.exit(1)
     }
 
@@ -57,11 +59,12 @@ async function main(): Promise<void> {
   }
 }
 
-async function handleError(err: any): Promise<void> {
-  console.error(err)
+async function handleError(err: unknown): Promise<void> {
   core.setFailed(`Unhandled error: ${err}`)
 }
 
-function getBooleanInput(inputName: string, defaultValue: boolean = false): boolean {
-  return (core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE'
+function getBooleanInput(inputName: string, defaultValue = false): boolean {
+  return (
+    (core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE'
+  )
 }

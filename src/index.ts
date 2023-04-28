@@ -41,9 +41,9 @@ async function main(): Promise<void> {
 
     const obj = plist.parse(fileContent)
 
-    for (const key in keyValuePairs) {
-      console.log(`the value of ${keyValuePairs[key].key} is ${keyValuePairs[key].value}`)
-      obj[keyValuePairs[key].key] = keyValuePairs[key].value
+    for (const index in keyValuePairs) {
+      console.log(`the value of ${keyValuePairs[index].key} is ${keyValuePairs[index].value}`)
+      obj[keyValuePairs[index].key] = keyValuePairs[index].value
     }
 
     fs.chmodSync(infoPlistPath, '600')

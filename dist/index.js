@@ -69,11 +69,10 @@ function main() {
                 yield exec.exec('cat', [infoPlistPath]);
             }
             const fileContent = fs.readFileSync(infoPlistPath, { encoding: 'utf8' });
-            core.debug(JSON.stringify(fileContent));
             const obj = plist.parse(fileContent);
             for (const key in keyValuePairs) {
-                console.log(`the value of ${key} is ${keyValuePairs[key]}`);
-                obj[key] = keyValuePairs[key];
+                console.log(`the value of ${keyValuePairs[key].key} is ${keyValuePairs[key].value}`);
+                obj[keyValuePairs[key].key] = keyValuePairs[key].value;
             }
             fs.chmodSync(infoPlistPath, '600');
             fs.writeFileSync(infoPlistPath, plist.build(obj));

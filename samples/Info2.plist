@@ -22,6 +22,7 @@
 	<true/>
 	<key>FirstCustomKey</key>
 	<string>Some old value</string>
+	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>

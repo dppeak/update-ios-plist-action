@@ -5,10 +5,6 @@ import * as fs from 'fs'
 process.on('unhandledRejection', handleError)
 main().catch(handleError)
 
-// interface IDictionary<T> {
-//   [index: string]: T
-// }
-
 async function main(): Promise<void> {
   try {
     const plist = require('plist')
@@ -41,11 +37,8 @@ async function main(): Promise<void> {
 
     const obj = plist.parse(fileContent)
 
-    console.log(keyValuePairs)
-
     for (const item of keyValuePairs) {
       for (const [key, value] of Object.entries(item)) {
-        console.log(`the value of ${key} is ${value}`)
         obj[key] = value
       }
     }

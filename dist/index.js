@@ -44,9 +44,6 @@ const exec = __importStar(__nccwpck_require__(1514));
 const fs = __importStar(__nccwpck_require__(7147));
 process.on('unhandledRejection', handleError);
 main().catch(handleError);
-// interface IDictionary<T> {
-//   [index: string]: T
-// }
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -70,10 +67,8 @@ function main() {
             }
             const fileContent = fs.readFileSync(infoPlistPath, { encoding: 'utf8' });
             const obj = plist.parse(fileContent);
-            console.log(keyValuePairs);
             for (const item of keyValuePairs) {
                 for (const [key, value] of Object.entries(item)) {
-                    console.log(`the value of ${key} is ${value}`);
                     obj[key] = value;
                 }
             }

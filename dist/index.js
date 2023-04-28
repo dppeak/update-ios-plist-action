@@ -44,6 +44,9 @@ const exec = __importStar(__nccwpck_require__(1514));
 const fs = __importStar(__nccwpck_require__(7147));
 process.on('unhandledRejection', handleError);
 main().catch(handleError);
+// interface IDictionary<T> {
+//   [index: string]: T
+// }
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -55,14 +58,10 @@ function main() {
                 process.exit(1);
             }
             core.debug(`Running action with ${infoPlistPath}`);
-            const keyName = core.getInput('key-name');
-            const keyValue = core.getInput('key-value');
-            if (!keyName) {
-                core.setFailed(`Key Name has no value: ${keyName}. You must define it.`);
-                process.exit(1);
-            }
-            if (!keyValue) {
-                core.setFailed(`Key Value has no value: ${keyValue}. You must define it.`);
+            const keyValuePairs = JSON.parse(core.getInput('key-value-json'));
+            core.debug(JSON.stringify(keyValuePairs));
+            if (!keyValuePairs) {
+                core.setFailed(`Key Value JSON has no value: ${keyValuePairs}. You must define it.`);
                 process.exit(1);
             }
             if (printFile) {
@@ -72,7 +71,10 @@ function main() {
             const fileContent = fs.readFileSync(infoPlistPath, { encoding: 'utf8' });
             core.debug(JSON.stringify(fileContent));
             const obj = plist.parse(fileContent);
-            obj[keyName] = keyValue;
+            for (const key of keyValuePairs) {
+                console.log(`the value of ${key} is ${keyValuePairs[key]}`);
+                obj[key] = keyValuePairs[key];
+            }
             fs.chmodSync(infoPlistPath, '600');
             fs.writeFileSync(infoPlistPath, plist.build(obj));
             if (printFile) {
@@ -93,7 +95,7 @@ function handleError(err) {
     });
 }
 function getBooleanInput(inputName, defaultValue = false) {
-    return ((core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE');
+    return (core.getInput(inputName) || String(defaultValue)).toUpperCase() === 'TRUE';
 }
 
 

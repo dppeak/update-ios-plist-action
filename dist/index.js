@@ -69,6 +69,7 @@ function main() {
             const obj = plist.parse(fileContent);
             for (const item of keyValuePairs) {
                 for (const [key, value] of Object.entries(item)) {
+                    core.debug(`Existing ${key} value ${obj[key]}`);
                     obj[key] = value;
                 }
             }

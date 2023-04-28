@@ -39,6 +39,7 @@ async function main(): Promise<void> {
 
     for (const item of keyValuePairs) {
       for (const [key, value] of Object.entries(item)) {
+        core.debug(`Existing ${key} value ${obj[key]}`)
         obj[key] = value
       }
     }

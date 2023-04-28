@@ -42,7 +42,7 @@ async function main(): Promise<void> {
 
     const obj = plist.parse(fileContent)
 
-    for (const key of keyValuePairs) {
+    for (const key in keyValuePairs) {
       console.log(`the value of ${key} is ${keyValuePairs[key]}`)
       obj[key] = keyValuePairs[key]
     }

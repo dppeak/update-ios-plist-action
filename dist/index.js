@@ -71,9 +71,11 @@ function main() {
             const fileContent = fs.readFileSync(infoPlistPath, { encoding: 'utf8' });
             const obj = plist.parse(fileContent);
             console.log(keyValuePairs);
-            for (const index in keyValuePairs) {
-                console.log(`the value of ${keyValuePairs[index].key} is ${keyValuePairs[index].value}`);
-                obj[keyValuePairs[index].key] = keyValuePairs[index].value;
+            for (const item of keyValuePairs) {
+                for (const [key, value] of Object.entries(item)) {
+                    console.log(`the value of ${key} is ${value}`);
+                    obj[key] = value;
+                }
             }
             fs.chmodSync(infoPlistPath, '600');
             fs.writeFileSync(infoPlistPath, plist.build(obj));

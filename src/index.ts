@@ -1,7 +1,6 @@
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import * as fs from 'fs'
-// import * as plist from 'plist'
 
 process.on('unhandledRejection', handleError)
 main().catch(handleError)

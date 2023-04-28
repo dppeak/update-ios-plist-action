@@ -5,11 +5,8 @@ inputs:
   info-plist-path:
     description: 'Relative path for the Info.plist file.'
     required: true
-  key-name:
-    description: 'The name of the user defined key'
-    required: true
-  key-value:
-    description: 'The value of the user defined key'
+  key-value-json:
+    description: 'A JSON string containing an array of key/value pairs'
     required: true
   print-file:
     description: 'Output the Info.plist file in console'

@@ -8,13 +8,9 @@ This action update or add a custom key in the Info.plist file for your iOS proje
 
 **Required** The relative path for the Info.plist file.
 
-### `key-name`
-  
-**Required** The name of the user defined key.
+### `key-value-json`
 
-###  `key-value`
-    
-**Required** The value of the user defined key
+**Required** A JSON string containing an array of key/value pairs.
 
 ###  `print-file`
 

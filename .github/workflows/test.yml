@@ -22,5 +22,5 @@ jobs:
       - uses: ./
         with:
           info-plist-path: './samples/Info.plist'
-          key-value-json: '{[{"FirstCustomKey": "Some Value to store"}, {"SecondCustomKey": "Another Value"}]}'
+          key-value-json: '[{"FirstCustomKey": "Some Value to store"}, {"SecondCustomKey": "Another Value"}]'
           print-file: true

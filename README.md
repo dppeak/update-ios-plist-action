@@ -23,7 +23,6 @@ Output the Info.plist file in console before and after update.
   uses: dppeak/update-ios-plist-action@v1.0.0
   with:
     info-plist-path: './path_to_your/Info.plist'
-    key-name: 'UserCustomKey'
-    key-value: 'some value'
+    key-value-json: '[{"FirstCustomKey": "Some new Value"}, {"SecondCustomKey": "Another Value"}]'
     print-file: true
 ```

@@ -1,5 +1,5 @@
 name: 'Update iOS Plist'
-description: 'Update iOS User Defined keys in your Info.plist file'
+description: 'Update or add custom key/value pairs in your Info.plist file'
 author: 'dppeak'
 inputs:
   info-plist-path:
@@ -16,4 +16,4 @@ runs:
   main: 'dist/index.js'
 branding:
   icon: 'file'
-  color: 'blue'
+  color: 'yellow'

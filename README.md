@@ -1,6 +1,6 @@
 # Update iOS Plist
 
-This action updates or adds a custom key/value pairs in the Info.plist file for your iOS projects.
+This action updates or adds custom key/value pairs in the Info.plist file for your iOS projects.
 
 ## Inputs
 

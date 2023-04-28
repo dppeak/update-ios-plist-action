@@ -18,10 +18,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Update iOS Info.plist
+      - name: Add new key/value pairs Info.plist
         uses: ./
         with:
           info-plist-path: './samples/Info.plist'
           key-value-json: '[{"FirstCustomKey": "Some Value to store"}, {"SecondCustomKey": "Another Value"}]'
+          print-file: true
+      - name: Update existing Key Info2.plist
+        uses: ./
+        with:
+          info-plist-path: './samples/Info2.plist'
+          key-value-json: '[{"FirstCustomKey": "Some new Value"}, {"SecondCustomKey": "Another Value"}]'
           print-file: true

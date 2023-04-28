@@ -41,6 +41,7 @@ async function main(): Promise<void> {
 
     const obj = plist.parse(fileContent)
 
+    console.log(keyValuePairs)
     for (const index in keyValuePairs) {
       console.log(`the value of ${keyValuePairs[index].key} is ${keyValuePairs[index].value}`)
       obj[keyValuePairs[index].key] = keyValuePairs[index].value
